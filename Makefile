@@ -38,7 +38,10 @@ SRC =	./srcs/ft_atoi.c \
 		./srcs/ft_puts.c \
 		./srcs/ft_split.c \
 		./srcs/ft_strs.c \
-		./srcs/ft_swaps.c
+		./srcs/ft_strns.c \
+		./srcs/ft_strjoinfree.c \
+		./srcs/ft_swaps.c \
+		./srcs/get_next_line.c
 
 OBJ = $(SRC:.c=.o)
 
