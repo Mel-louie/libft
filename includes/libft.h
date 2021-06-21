@@ -67,4 +67,3 @@ void		simple_swap(int *a, int *b);
 int			get_next_line(int fd, char **line);
 
 #endif
-
