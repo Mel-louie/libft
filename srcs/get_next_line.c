@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 14:50:58 by mdesfont          #+#    #+#             */
-/*   Updated: 2021/06/21 14:43:01 by user42           ###   ########.fr       */
+/*   Updated: 2021/06/21 14:53:11 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int	get_next_line(int fd, char **line)
 		*line = ft_strjoin(*line, buffer);
 		if (*line == NULL)
 			return (-1);
+		ret = read(fd, buffer, 1);
 	}
 	if (ret < 0)
 		return (-1);
