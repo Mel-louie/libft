@@ -9,6 +9,7 @@
 
 long long	ft_great_atoi(const char *str);
 int			ft_atoi(const char *str);
+char		*ft_itoa(int n);
 
 /*
 ** FREEs
@@ -35,6 +36,7 @@ void		ft_putstr_fd(char *str, int fd);
 */
 
 char		*ft_strndup(const char *s, size_t n);
+char		*ft_strdup(const char *s1);
 char		**ft_split(const char *str, char c);
 int			ft_strlen(char *str);
 char		*ft_strcpy(char *dest, const char *src);
