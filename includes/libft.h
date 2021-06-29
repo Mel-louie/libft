@@ -4,6 +4,13 @@
 # include <unistd.h>
 
 /*
+** ALLOC
+*/
+
+void		ft_bzero(void *s, size_t n);
+void		*ft_calloc(size_t count, size_t size);
+
+/*
 ** ATOIs ITOAs
 */
 
