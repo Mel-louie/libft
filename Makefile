@@ -72,8 +72,6 @@ norminette :
 	@norminette --version
 	@echo "\nNorming...\033[0m\n"
 	@echo "SRCS:"
-	@norminette *.c
-	@echo "\nINCLUDES:"
-	@norminette ./includes/*.h
+	@norminette srcs/
 
 .PHONY:		all clean fclean re
