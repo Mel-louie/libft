@@ -1,5 +1,25 @@
 NAME = libft.a
 
+#	COLORS	#
+_BLACK		= "\033[30m"
+_RED		= "\033[31m"
+_GREEN		= "\033[32m"
+_YELLOW		= "\033[33m"
+_BLUE		= "\033[34m"
+_PURPLE		= "\033[35m"
+_CYAN		= "\033[36m"
+_WHITE		= "\033[37m"
+_END		= "\033[0m"
+#	bold	#
+B_BLACK		= "\033[1;30m"
+B_RED		= "\033[1;31m"
+B_GREEN		= "\033[1;32m"
+B_YELLOW	= "\033[1;33m"
+B_BLUE		= "\033[1;34m"
+B_PURPLE	= "\033[1;35m"
+B_CYAN		= "\033[1;36m"
+B_WHITE		= "\033[1;37m"
+
 SRC_NAME =	ft_atoi.c \
 		ft_bzero.c \
 		ft_calloc.c \
@@ -25,8 +45,8 @@ OBJ = $(addprefix $(OBJ_PATH), $(OBJ_NAME))
 CFLAGS = -Wall -Wextra -Werror
 
 all: $(OBJ_PATH) $(NAME)
-	@printf "[ compiling libft ]\t...\n"
-	@printf "[ created ] \t\t$(NAME) "
+	@printf $(B_YELLOW)"[ compiling libft ]\t...\n\n"$(_END)
+	@printf $(B_GREEN)"[ created ] \t\t$(NAME) "$(_END)
 
 $(OBJ_PATH):
 	@mkdir $@
@@ -40,17 +60,14 @@ $(NAME): $(OBJ)
 clean:
 	@rm -rf $(OBJ)
 	@rm -rf $(OBJ_PATH)
-	@printf "[ deleted ] \t\tobjects\n"
+	@printf $(B_RED)"[ deleted ] \t\tobjects\n"$(_END)
 
 
 fclean: clean
 	@rm -f $(NAME)
-	@printf "[ deleted ] \t\t$(NAME)\n\n"
+	@printf $(B_RED)"[ deleted ] \t\t$(NAME)\n\n"$(_END)
 
 re: fclean all
-
-os:
-	@echo $(_CYAN)"The OS is currently: "$(_END)$(_YELLOW)$(OS_NAME)$(_END)
 
 norminette :
 	@echo "\033[1;37m"
