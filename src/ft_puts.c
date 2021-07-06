@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_puts.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdesfont <mdesfont@student.42.fr>          +#+  +:+       +#+        */
+/*   By: louielouie <louielouie@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 14:51:09 by mdesfont          #+#    #+#             */
-/*   Updated: 2021/06/11 15:27:37 by mdesfont         ###   ########.fr       */
+/*   Updated: 2021/07/06 10:27:01 by louielouie       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
 void	ft_putstr_fd(char *str, int fd)
 {

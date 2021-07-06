@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: user42 <user42@student.42.fr>              +#+  +:+       +#+         #
+#    By: louielouie <louielouie@student.42.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/11 15:17:57 by mdesfont          #+#    #+#              #
-#    Updated: 2021/06/29 14:08:34 by user42           ###   ########.fr        #
+#    Updated: 2021/07/06 10:37:05 by louielouie       ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,47 +31,56 @@ _END		= "\033[0m"
 
 OS_NAME := $(shell uname -s | tr A-Z a-z)
 
-SRC =	./srcs/ft_atoi.c \
-		./srcs/ft_bzero.c \
-		./srcs/ft_calloc.c \
-		./srcs/ft_frees.c \
-		./srcs/ft_isdigit.c \
-		./srcs/ft_itoa.c  \
-		./srcs/ft_puts.c \
-		./srcs/ft_split.c \
-		./srcs/ft_strs.c \
-		./srcs/ft_strns.c \
-		./srcs/ft_strjoinfree.c \
-		./srcs/ft_swaps.c \
-		./srcs/ft_tab.c \
-		./srcs/get_next_line.c
-
-OBJ = $(SRC:.c=.o)
-
-Ctab = -Wall -Wextra -Werror #-g3 -fsanitize=address
 NAME = libft.a
 
-CC = gcc
+SRC_NAME =	ft_atoi.c \
+		ft_bzero.c \
+		ft_calloc.c \
+		ft_frees.c \
+		ft_isdigit.c \
+		ft_itoa.c  \
+		ft_puts.c \
+		ft_split.c \
+		ft_strs.c \
+		ft_strns.c \
+		ft_strjoinfree.c \
+		ft_swaps.c \
+		ft_tab.c \
+		get_next_line.c
 
-.c.o::
-		$(CC) $(Ctab) -c $< -o $(<:.c=.o)
+SRC_PATH = ./src/
+OBJ_PATH = ./obj/
 
-$(NAME):: $(OBJ)
-	@ar -rc $(NAME) $(OBJ)
-	@echo $(_GREEN)"\nlibft.a created"$(_END)
+OBJ_NAME = $(SRC_NAME:.c=.o)
+SRC = $(addprefix $(SRC_PATH), $(SRC_NAME))
+OBJ = $(addprefix $(OBJ_PATH), $(OBJ_NAME))
 
-all:		$(NAME)
+
+CFLAGS = -Werror -Wall -Wextra
+
+all: $(OBJ_PATH) $(NAME)
+	@printf "created: $(NAME)"
+
+$(OBJ_PATH):
+	@mkdir $@
+
+$(OBJ_PATH)%.o: $(SRC_PATH)%.c
+	@gcc $(CFLAGS) -o $@ -c $< 
+
+$(NAME): $(OBJ)
+	@ar rc $(NAME) $(OBJ)
 
 clean:
-	@echo $(_RED)"Cleaning in progress..."$(_END)
-	@rm -f $(OBJ)
-	@echo $(_GREEN)"Cleaning done!"$(_END)
+	/bin/rm -f $(OBJ)
+	/bin/rm -rf $(OBJ_PATH)
+	@printf "deleted: $(OBJ)\n"
 
-fclean:	 clean
-	@rm -f $(NAME)
-	@echo $(_GREEN)"libft.a is delete"$(_END)
 
-re:		fclean all
+fclean: clean
+	/bin/rm -f $(NAME)
+	@printf "deleted: $(NAME)\n"
+
+re: fclean all
 
 os:
 	@echo $(_CYAN)"The OS is currently: "$(_END)$(_YELLOW)$(OS_NAME)$(_END)
@@ -81,7 +90,7 @@ norminette :
 	@norminette --version
 	@echo "\nNorming...\033[0m\n"
 	@echo "SRCS:"
-	@norminette ./srcs/*.c
+	@norminette *.c
 	@echo "\nINCLUDES:"
 	@norminette ./includes/*.h
 
