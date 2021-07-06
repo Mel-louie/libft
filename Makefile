@@ -45,10 +45,8 @@ OBJ = $(addprefix $(OBJ_PATH), $(OBJ_NAME))
 CFLAGS = -Wall -Wextra -Werror
 
 all: $(OBJ_PATH) $(NAME)
-	@printf $(B_WHITE)"[ compiling libft ]" 
-	@printf $(B_YELLOW)"\t...\n"$(_END)
-	@printf $(B_WHITE)"[ created ]"
-	@printf $(B_GREEN)"\t\t$(NAME) "$(_END)
+	@echo "[ "$(B_YELLOW)"libft building"$(_END) "]" $(B_WHITE)"\t..."$(_END)
+	@echo "[ "$(B_GREEN)"created"$(_END) "]" $(B_WHITE)"\t\t"$(NAME)$(_END)
 
 $(OBJ_PATH):
 	@mkdir $@
@@ -62,13 +60,10 @@ $(NAME): $(OBJ)
 clean:
 	@rm -rf $(OBJ)
 	@rm -rf $(OBJ_PATH)
-	@printf $(B_WHITE)"[ deleted ]"$(_END)
-	@printf $(B_RED)"\t\tobjects\n"$(_END)
 
 fclean: clean
 	@rm -f $(NAME)
-	@printf $(B_WHITE)"[ deleted ]"$(_END)
-	@printf $(B_RED)"\t\t$(NAME)\n"$(_END)
+	@echo "[ "$(B_PURPLE)"libft cleaned"$(_END) " ]" $(B_WHITE)"\t..."$(_END)
 
 re: fclean all
 
