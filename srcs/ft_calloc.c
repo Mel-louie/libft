@@ -3,27 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: louielouie <louielouie@student.42.fr>      +#+  +:+       +#+        */
+/*   By: mdesfont <mdesfont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 14:02:36 by user42            #+#    #+#             */
-/*   Updated: 2021/07/06 10:27:01 by louielouie       ###   ########.fr       */
+/*   Updated: 2021/09/04 15:56:46 by mdesfont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+int	alloc_error(int code)
 {
-	char			*m;
-	unsigned int	i;
-
-	m = (char *)s;
-	i = 0;
-	while (i < n)
-	{
-		m[i] = '\0';
-		i++;
-	}
+	write(2, "Can't malloc.\n", 14);
+	return (code);
 }
 
 void	*ft_calloc(size_t count, size_t size)
